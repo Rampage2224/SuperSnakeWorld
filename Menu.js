@@ -1,24 +1,25 @@
-
-
 var Initialize = (function (Initialice){
-	this.canvas = document.createElement("canvas");
 	
-	setCanvas(480, 270);
-	
+	StartButton();
 })
 
-var setCanvas = function(){
 
 
-				this.canvas.width = 480;
-				this.canvas.height = 270;
-				this.context = this.canvas.getContext("2d");
-				document.body.insertBefore(this.canvas, document.body.childNodes[0]);
-
+function StartButton(){
+	MenuTag = document.getElementById("MenuTag");
+	startButton = document.createElement("Button");
+	text = document.createTextNode("Start");
+	
+	startButton.appendChild(text);
+	
+	startButton.onclick = function(){
+		StartGame();
+		StopButton();}
+	MenuTag.appendChild(startButton);
+	
+	
 	
 }
-
-function DrawMenu(){
-	
-}
-
+var StopButton = (function(){
+	MenuTag.removeChild(startButton);
+})

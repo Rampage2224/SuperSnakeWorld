@@ -1,9 +1,28 @@
 
-		
 		//Function that initiates when the page loads
 		//Loads all other functions
-
-		var StartGame = (function (StartGame){
+		function StopGame(){
+				
+			snake = 
+			[{x : 200, y : 200}];
+			dx == 0;
+			dy == 0;
+			goingUp = 0;
+			goingDown = 0;
+			goingLeft = 0;
+			goingRight = 0;
+		}
+		let StartGame = (function (StartGame){
+			StopGame();
+			snake = 
+			[{x : 200, y : 200},
+			{x : 200, y : 210},
+			{x : 200, y : 220},
+			{x : 200, y : 230},
+			 {x : 200, y : 240}];
+			dx == 10;
+			dy == 0;
+			
 			GameArea.start();
 			
 			//Creates snake
@@ -15,16 +34,14 @@
 		})
 						 
 		
-		 let snake = 
+let snake = 
 			[{x : 200, y : 200},
 			{x : 200, y : 210},
 			{x : 200, y : 220},
 			{x : 200, y : 230},
 			 {x : 200, y : 240}];
-			
-		
-		dx = 10;
-		dy = 0;
+			let dx = 10;
+	let dy = 0;
 			
 			
 			document.addEventListener("keydown", changeDirection);
@@ -190,4 +207,3 @@
 			}
 			
 		}
-
