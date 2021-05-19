@@ -1,19 +1,22 @@
 var Initialize = (function (Initialice){
 	
 	StartButton();
+	gamePause = true;
+	StartGame();
 })
 
 
 
 function StartButton(){
+
 	MenuTag = document.getElementById("MenuTag");
 	startButton = document.createElement("Button");
-	text = document.createTextNode("Start");
+	textStart = document.createTextNode("Start");
 	
-	startButton.appendChild(text);
+	startButton.appendChild(textStart);
 	
 	startButton.onclick = function(){
-		StartGame();
+		gamePause = false;
 		StopButton();}
 	MenuTag.appendChild(startButton);
 	
@@ -22,4 +25,14 @@ function StartButton(){
 }
 var StopButton = (function(){
 	MenuTag.removeChild(startButton);
+	stopButton = document.createElement("Button");
+	textStop = document.createTextNode("Stop");
+	stopButton.appendChild(textStop);
+	MenuTag.appendChild(stopButton);
+	
+	stopButton.onclick = function(){
+		gamePause = true;
+		StartButton();
+		MenuTag.appendChild(startButton);
+		MenuTag.removeChild(stopButton);}
 })

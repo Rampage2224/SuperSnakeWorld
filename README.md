@@ -1,2 +1,2 @@
-# Super Snake World
+# Snake
 Snake game

@@ -1,20 +1,12 @@
+let gamePause = false;
 
+let snakeColor = 'lime';
+let colorNumber = 1;
 		//Function that initiates when the page loads
 		//Loads all other functions
-		function StopGame(){
-				
-			snake = 
-			[{x : 200, y : 200}];
-			dx == 0;
-			dy == 0;
-			goingUp = 0;
-			goingDown = 0;
-			goingLeft = 0;
-			goingRight = 0;
-		}
+		
 		let StartGame = (function (StartGame){
-			StopGame();
-			snake = 
+			let snake = 
 			[{x : 200, y : 200},
 			{x : 200, y : 210},
 			{x : 200, y : 220},
@@ -54,7 +46,12 @@ let snake =
 				this.canvas.height = 270;
 				this.context = this.canvas.getContext("2d");
 				document.body.insertBefore(this.canvas, document.body.childNodes[0]);
-				this.interval = setInterval(updateGameArea, 100);
+				
+
+				
+					this.interval = setInterval(updateGameArea, 100);
+				
+				
 			},
 
 			
@@ -76,7 +73,7 @@ let snake =
 		 function drawSnakePart(part){
 			
 			ctx = GameArea.context;
-			ctx.fillStyle = 'Lime';
+			ctx.fillStyle = snakeColor;
 			ctx.strokeStyle = 'Green';
 			ctx.strokeRect(part.x, part.y, 9, 9);
 			ctx.fillRect(part.x, part.y,9, 9);
@@ -111,11 +108,23 @@ let snake =
 			const has_eaten = snake[0].x === food_x && snake[0].y === food_y;
 			if (has_eaten){
 				GenFood();
+				ChangeColor();
 			}
 			else{
 				snake.pop();
 			}
 			
+			
+		}
+
+		function ChangeColor(){
+			var chose_snakeColor = ['lime', '#33FFEF', '#3368FF', '#C36CFF', '#FF83F9', '#FBC962', '#9FFF24'];
+			snakeColor = chose_snakeColor[colorNumber];
+			if(colorNumber >= chose_snakeColor.length - 1){
+				colorNumber = 0;}
+			else{
+				colorNumber += 1;
+			}
 			
 		}
 		
@@ -132,7 +141,7 @@ let snake =
 			const goingDOWN = dy === 10
 			const goingLEFT = dx === -10
 			const goingRIGHT = dx === 10
-			
+			if(!gamePause){
 			if(KeyPressed === LEFT_KEY && !goingRIGHT){
 				dx = -10
 				dy = 0
@@ -148,6 +157,7 @@ let snake =
 			if(KeyPressed === DOWN_KEY && !goingUP){
 				dx = 0
 				dy = 10
+			}
 			}
 				document.removeEventListener("keydown", changeDirection);
 			
@@ -177,12 +187,18 @@ let snake =
 			
 		 function updateGameArea(){
 			GameArea.clear();
-			document.addEventListener("keydown", changeDirection);	
-			if(!hasGameEnded()){
-				document.addEventListener("keydown", changeDirection);
-				drawSnake();
-				moveSnake();
-				drawFood();	
+			document.addEventListener("keydown", changeDirection);
+			 
+				if(!hasGameEnded()){
+					
+					drawSnake();
+					drawFood();
+					if(!gamePause){
+
+						moveSnake();
+					}
+					
+				
 			}
 			
 			
