@@ -92,16 +92,16 @@ let snake =
 		 function moveSnake(){
 			
 			const head = {x: snake[0].x + dx, y: snake[0].y + dy};
-			if(snake[0].x >= 480){
-				head.x = 10;
+			if(snake[0].x > 470){
+				head.x = 0;
 			}
-			if(snake[0].x <= 0){
+			if(snake[0].x < 0){
 				head.x = 470;
 			}
-			if(snake[0].y >= 270){
-				head.y = 10;
+			if(snake[0].y > 260){
+				head.y = 0;
 			}
-			if(snake[0].y <= 0){
+			if(snake[0].y < 0){
 				head.y = 260;
 			}
 			snake.unshift(head);
@@ -176,8 +176,8 @@ let snake =
 		
 		 function GenFood()
 		{
-			food_x = randomFood(0, 480 - 10);
-			food_y = randomFood(0, 270 - 10);
+			food_x = randomFood(10, 480 - 10);
+			food_y = randomFood(10, 270 - 10);
 			snake.forEach(function has_snake_eaten(part){
 				const has_eaten = part.x == food_x && part.y == food_y;
 				if(has_eaten) GenFood();
