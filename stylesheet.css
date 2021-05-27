@@ -1,0 +1,37 @@
+
+	@import url('https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap');
+			
+			
+	@import  url('https://fonts.googleapis.com/css2family=Squada+One&display=swap');
+
+			canvas {
+    border: 1px solid #d3d3d3;
+    background-color: #444;
+	padding: 0;
+    margin: auto;
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+			*{
+				margin : 40px;
+				position : center;
+				text-align : center;
+				background-color: #EEE;
+			}
+			
+			
+			text, button, p, input{
+				border : 1px solid #000;
+				margin : auto;
+				position : center;
+				font-family : 'Odibee Sans', cursive;
+				font : 'Odibee Sans';
+				font-size : 32px;
+				font-weight : bold;
+			}
+
+

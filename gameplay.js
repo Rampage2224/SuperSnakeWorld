@@ -118,7 +118,7 @@ let snake =
 		}
 
 		function ChangeColor(){
-			var chose_snakeColor = ['lime', '#33FFEF', '#3368FF', '#C36CFF', '#FF83F9', '#FBC962', '#9FFF24'];
+			var chose_snakeColor = ['lime', '#54ffaa', '#33FFEF', '#66a8ff', '#7066ff', '#9d73ff', '#d573ff', '#ff91e5', '#ff879d', '#ff8254', '#ffd66e', '#e8ed53', '#9ae649', '#60e854'];
 			snakeColor = chose_snakeColor[colorNumber];
 			if(colorNumber >= chose_snakeColor.length - 1){
 				colorNumber = 0;}
